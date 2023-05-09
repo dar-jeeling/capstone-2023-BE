@@ -32,19 +32,16 @@ export class ImageController {
     const outputFilePath = 'processed_' + file.filename + fileExtension;
 
     try {
-      await this.imageService.processImage(inputFilePath, outputFilePath);
+      const imageUrl = await this.imageService.processImage(
+        inputFilePath,
+        outputFilePath,
+      );
 
-      // 파일 다운로드와 삭제 로직
-      res.download(outputFilePath, async (err) => {
-        if (err) {
-          console.error('Error sending file:', err);
-          return res.status(500).json({ message: 'Image download failed' });
-        }
+      // Clean up temporary files
+      await unlink(inputFilePath);
+      await unlink(outputFilePath);
 
-        // Clean up temporary files
-        await unlink(inputFilePath);
-        await unlink(outputFilePath);
-      });
+      return res.json({ imageUrl });
     } catch (error) {
       return res.status(500).json({ message: error });
     }
