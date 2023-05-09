@@ -41,3 +41,6 @@ uploads/*
 
 # 프로세싱 완료한 이미지
 processed_image-*
+
+# environment variables
+.env
