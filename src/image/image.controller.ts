@@ -32,7 +32,7 @@ export class ImageController {
     const outputFilePath = 'processed_' + file.filename + fileExtension;
 
     try {
-      const imageUrl = await this.imageService.processImage(
+      const response = await this.imageService.processImage(
         inputFilePath,
         outputFilePath,
       );
@@ -41,7 +41,7 @@ export class ImageController {
       await unlink(inputFilePath);
       await unlink(outputFilePath);
 
-      return res.json({ imageUrl });
+      return res.json(response);
     } catch (error) {
       return res.status(500).json({ message: error });
     }
