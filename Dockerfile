@@ -23,9 +23,9 @@ CMD ["pnpm", "run", "start"]
 # Install Python3 and pip
 RUN apt-get update && apt-get install -y python3 python3-pip
 
-# Install OpenCV
+# Install Python Pacakages : Tensorflow, Numpy, OpenCV, Pillow
 RUN apt-get update && apt-get install -y libsm6 libxext6 libxrender-dev
-RUN pip install opencv-python
+RUN pip install --no-cache-dir tensorflow numpy opencv-python-headless Pillow
 
 # libGL
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
