@@ -20,7 +20,7 @@
 </div>
 
 ## 프로젝트 미리보기
-![image](https://github.com/dar-jeeling/capstone-2023-BE/assets/74234333/6d911ff6-d84a-4ef2-a060-5a1de5b0d0d4)
+https://github.com/dar-jeeling/capstone-2023-BE/assets/74234333/f8256262-975d-4af4-b1d2-f61a179a1fe5
 
 
 # 전체 시스템 설계
